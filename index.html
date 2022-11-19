@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="img/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Все мои объявления</title>
+
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Все мои объявления</h1>
+      <nav>
+        <ul class="nav__links">
+          <li class="nav__item nav__item-active">
+            <a class="nav__link" href="#section--1">Активные</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--2">Архив</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--3">Черновики</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sort">
+        <input type="checkbox" class="check-all" id="check-all" />
+        <button type="button" class="to-archive">снять с публикации</button>
+        <div class="select">
+          <div class="select__header">
+            <span class="select__current">Все объявления</span>
+          </div>
+        </div>
+        <div class="select">
+          <div class="select__header">
+            <span class="select__current">По дате публикации</span>
+            <!-- <img src=".img/tabler_arrows-up.svg" /> -->
+          </div>
+
+          <div class="select__body">
+            <div class="select__item" id="date_up">По дате публикации</div>
+            <!-- <img src="img/tabler_arrows-up.svg" class="select__icon"/> -->
+            <div class="select__item" id="date_down">По дате публикации</div>
+            <div class="select__item" id="price_up">По цене</div>
+            <div class="select__item" id="price_down">По цене</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="card"></div>
+    </section>
+
+    <section class="section" id="section--3">
+      <div class="container">
+        <img src="img/user-1.jpg" alt="" class="img img-1 show" />
+        <img src="img/user-2.jpg" alt="" class="img img-2" />
+        <img src="img/user-3.jpg" alt="" class="img img-3" />
+        <img src="img/user-2.jpg" alt="" class="img img-4" />
+      </div>
+      <!-- <div class="slider">
+
+        <div class="slide"><img src="img/img-1.jpg" alt="Photo 1" /></div>
+        <div class="slide"><img src="img/img-2.jpg" alt="Photo 2" /></div>
+        <div class="slide"><img src="img/img-3.jpg" alt="Photo 3" /></div>
+        <div class="slide"><img src="img/img-4.jpg" alt="Photo 4" /></div>
+
+        <button class="slider__btn slider__btn--left">&larr;</button>
+        <button class="slider__btn slider__btn--right">&rarr;</button>
+        <div class="dots"></div>
+      </div> -->
+    </section>
+
+    <footer class="footer">
+      <img src="img/icon.png" alt="Logo" class="footer__logo" />
+    </footer>
+
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>
