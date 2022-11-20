@@ -3,24 +3,20 @@
 const DATA = [
   {
     id: "id001",
-    type: "task",
     date: 10,
     name: "Сделать что-то",
     price: 50900,
-    days: "20 дней",
     adress: "Санкт-Петербург, ст. м. Маяковская",
-    dsecription: "Тип здания: одноэтапное",
+    dsecription: "Тип здания: одноэтажное",
     visible: "",
     public: "горящее",
     toArchive: false,
   },
   {
     id: "id002",
-    type: "buy",
     date: 30,
     name: "Куплю планшет Samsung",
     price: 10000,
-    days: "20 дней",
     adress: "Санкт-Петербург, ст. м. Маяковская",
     dsecription: "",
     visible: "всем зарегистрированным",
@@ -29,11 +25,9 @@ const DATA = [
   },
   {
     id: "id003",
-    type: "sale",
     date: 17,
     name: "Продам кроссовки",
     price: 5000,
-    days: "20 дней",
     adress: "Санкт-Петербург, ст. м. Маяковская",
     dsecription: "",
     visible: "всем зарегистрированным",
@@ -42,11 +36,10 @@ const DATA = [
   },
   {
     id: "id004",
-    type: "service",
+
     date: 5,
     name: "Художник",
     price: 70000,
-    days: "20 дней",
     adress: "Санкт-Петербург, ст. м. Маяковская",
     dsecription: "",
     visible: "открытая",
@@ -59,49 +52,44 @@ const DATA = [
 // CARDS DISPLAY
 
 const cards = JSON.parse(JSON.stringify(DATA));
+console.log(cards); // Получаем массив
 
-// const displayCard = cards => {
-//   // document.querySelector('.card').innerHTML = '';
-
-//   return cards.forEach(item => {
-//     document.querySelector('.card').innerHTML += `
-//     <div class="card__wrapper">
-//     <div class="card__slider">
-//     <input type="checkbox" class="card__checkbox" name="${item.name}" id="${item.id}">
-//     <div class="container">
-//     <img src="img/user-1.jpg" alt="" class="img img-1 show">
-//     <img src="img/user-2.jpg" alt="" class="img img-2">
-//     <img src="img/user-3.jpg" alt="" class="img img-3">
-//     <img src="img/user-2.jpg" alt="" class="img img-4">
-// </div>
-//     </input>
-
-//   </div>
-
-//   <div class="description">
-//     <h3><a>${item.name}</a></h3>
-//     <p>${item.price}</p>
-//     <p>${item.date} число</p>
-//     <p>${item.days}</p>
-//     <p>${item.adress}</p>
-//     <p>${item.dsecription}</p>
-//     <p>Тип публикации: ${item.dsecription}</p>
-
-//   </div>
-//   </div>
-//     `;
+// const sortCards = (cards) => {
+//   document.querySelectorAll(".select__item").forEach((el) => {
+//     el.addEventListener("click", (event) => {
+//       const target = event.target;
+//       if (target.id === "date_up") {
+//         cards.sort((a, b) => (a.date > b.date ? 1 : -1));
+//         console.log(target.id, cards);
+//       } else if (target.id === "date_down") {
+//         cards.sort((a, b) => (a.date > b.date ? -1 : 1));
+//         console.log(target.id, cards);
+//       } else if (target.id === "price_up") {
+//         cards.sort((a, b) => (a.price > b.price ? 1 : -1));
+//         console.log(target.id, cards);
+//       } else if (target.id === "price_down") {
+//         cards.sort((a, b) => (a.price > b.price ? -1 : 1));
+//         console.log(target.id, cards);
+//       } else "";
+//     });
 //   });
+//   return cards;
 // };
-// displayCard(cards);
+// sortCards(cards);
 
-const displayCard = (cards) => {
-  // document.querySelector('.card').innerHTML = '';
+displayCard(cards);
+
+function displayCard(cards) {
+  // document.querySelector(".card").innerHTML = "";
+  console.log(cards);
 
   return cards.forEach((item) => {
     document.querySelector(".card").innerHTML += `
     <div class="card__wrapper">
     <div class="card__slider">
-    <input type="checkbox" class="card__checkbox" name="${item.name}" id="${item.id}"> </input>
+    <input type="checkbox" class="card__checkbox" name="${item.name}" id="${
+      item.id
+    }"> </input>
     <img src="img/user-1.jpg" alt="" class="img img-1 show">
     <img src="img/user-2.jpg" alt="" class="img img-2">
     <img src="img/user-3.jpg" alt="" class="img img-3">
@@ -111,54 +99,44 @@ const displayCard = (cards) => {
   <div class="description">
     <h3><a>${item.name}</a></h3>
     <p>${item.price}</p>
-    <p>${item.date} число</p>
-    <p>${item.days}</p>
+    <p>${item.date} ноября</p>
+    <p>${30 - item.date} дней</p>
     <p>${item.adress}</p>
     <p>${item.dsecription}</p>
-    <p>Тип публикации: ${item.dsecription}</p>
+    <p>Тип публикации: ${item.public}</p>
 
   </div>
   </div>
     `;
   });
-};
-displayCard(cards);
+}
 
 // const sortByDateUp = () => {
-//   document.querySelector('.card').innerHTML = '';
+//   document.querySelector(".card").innerHTML = "";
 //   // const cards = JSON.parse(JSON.stringify(arr));
 //   cards.sort((a, b) => (a.date > b.date ? 1 : -1));
 
 //   return displayCard(cards);
 // };
 
-const sortByDateDown = () => {
-  document.querySelector(".card").innerHTML = "";
-  // const cards = JSON.parse(JSON.stringify(arr));
-  cards.sort((a, b) => (a.date > b.date ? -1 : 1));
+// const sortByDateDown = () => {
+//   document.querySelector(".card").innerHTML = "";
+//   cards.sort((a, b) => (a.date > b.date ? -1 : 1));
+//   return displayCard(cards);
+// };
 
-  return displayCard(cards);
-};
+// const sortByPriceUp = () => {
+//   document.querySelector(".card").innerHTML = "";
+//   cards.sort((a, b) => (a.price > b.price ? 1 : -1));
+//   return displayCard(cards);
+// };
 
-const sortByPriceUp = () => {
-  document.querySelector(".card").innerHTML = "";
-  // const cards = JSON.parse(JSON.stringify(arr));
-  cards.sort((a, b) => (a.price > b.price ? 1 : -1));
+// const sortByPriceDown = () => {
+//   document.querySelector(".card").innerHTML = "";
+//   cards.sort((a, b) => (a.price > b.price ? -1 : 1));
+//   return displayCard(cards);
+// };
 
-  return displayCard(cards);
-};
-
-const sortByPriceDown = () => {
-  document.querySelector(".card").innerHTML = "";
-  // const cards = JSON.parse(JSON.stringify(arr));
-  cards.sort((a, b) => (a.price > b.price ? -1 : 1));
-
-  return displayCard(cards);
-};
-
-// document.getElementById('date_up').addEventListener('click', () => {
-//   sortByDateUp(cards);
-// });
 document.getElementById("date_up").addEventListener("click", () => {
   document.querySelector(".card").innerHTML = "";
   cards.sort((a, b) => (a.date > b.date ? 1 : -1));
@@ -166,15 +144,20 @@ document.getElementById("date_up").addEventListener("click", () => {
 });
 
 document.getElementById("date_down").addEventListener("click", () => {
-  sortByDateDown(cards);
-  console.log(cards);
+  document.querySelector(".card").innerHTML = "";
+  cards.sort((a, b) => (a.date > b.date ? -1 : 1));
+  return displayCard(cards);
 });
 
 document.getElementById("price_up").addEventListener("click", () => {
-  sortByPriceUp(cards);
+  document.querySelector(".card").innerHTML = "";
+  cards.sort((a, b) => (a.price > b.price ? 1 : -1));
+  return displayCard(cards);
 });
 document.getElementById("price_down").addEventListener("click", () => {
-  sortByPriceDown(cards);
+  document.querySelector(".card").innerHTML = "";
+  cards.sort((a, b) => (a.price > b.price ? -1 : 1));
+  return displayCard(cards);
 });
 
 ////////////////////////////////////
@@ -183,19 +166,22 @@ document.getElementById("price_down").addEventListener("click", () => {
 const cardCheckbox = Array.from(document.querySelectorAll(".card__checkbox"));
 const cardCheckAll = document.querySelector(".check-all");
 
-const cardsParant = document.querySelector(".card");
+// const cardsParant = document.querySelector(".card");
+// const cardsChildren = Array.from(cardsParant.children);
+// console.log(cardsChildren);
 const archiveButton = document.querySelector(".to-archive");
 
-console.log(cardsParant.children[1].children[0].children[0].id);
+// console.log(cardsParant.length);
+// console.log(cardsParant.children[0].children[0].children[0].checked);
 
 let toArchive = [];
 const chekedCard = cardCheckbox.map((item) => {
   archiveButton.addEventListener("click", () => {
     item.checked
       ? (item.parentElement.parentElement.style.display = "none") &&
-        toArchive.push(item.id)
+        toArchive.push(item.id) &&
+        console.log(toArchive)
       : "";
-    console.log(toArchive);
   });
 });
 
@@ -213,7 +199,6 @@ function checkAll() {
     });
   }
 }
-console.log(toArchive);
 
 ////////////////////////////////////
 // SELECTION
@@ -226,9 +211,6 @@ let select = function () {
     item.addEventListener("click", selectToggle);
   });
 
-  // selectItem.forEach(item => {
-  //   item.addEventListener('click', selectChoose);
-  // });
   selectItem.forEach((item) => {
     item.addEventListener("click", () => {
       let text = item.innerText;
@@ -242,14 +224,6 @@ let select = function () {
   function selectToggle() {
     this.parentElement.classList.toggle("is-active");
   }
-
-  // function selectChoose() {
-  //   let text = this.innerText,
-  //     select = this.closest('.select'),
-  //     currentText = select.querySelector('.select__current');
-  //   currentText.innerText = text;
-  //   select.classList.remove('is-active');
-  // }
 };
 
 select();
