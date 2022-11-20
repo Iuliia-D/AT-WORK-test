@@ -84,8 +84,8 @@ button {
 /* CARD */
 
 .card__wrapper {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 270px);
   margin: 10px;
 }
 .card {
@@ -111,6 +111,79 @@ h3 {
   font-size: 16px;
   line-height: 22px;
   color: #333153;
+}
+
+.assets {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+.stats-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.stats--feedback,
+.stats--view,
+.stats--favorites,
+.stats--recommend {
+  display: flex;
+  flex-direction: row;
+  margin: 6px;
+}
+.stats--feedback::before {
+  content: url("img/vacancy-icons.svg");
+  padding: 3px 3px;
+}
+.stats--view::before {
+  content: url("img/views.svg");
+  padding: 1px 3px;
+}
+.stats--favorites::before {
+  content: url("img/favorites.svg");
+  padding: 1px 3px;
+}
+.stats--recommend::before {
+  content: url("img/recommend.svg");
+  padding: 1px 4px;
+}
+.stats--fill {
+  background-image: url("img/fill.svg");
+  width: 140px;
+  height: 26px;
+  margin: 5px;
+}
+
+.board-btns-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+.board-btn--1 {
+  background-image: url("img/board-btns.svg");
+  width: 36px;
+  height: 36px;
+  margin: 5px;
+}
+.board-btn--2 {
+  background-image: url("img/board-btns2.svg");
+  width: 36px;
+  height: 36px;
+  margin: 5px;
+}
+.board-btn--3 {
+  background-image: url("img/board-btns3.svg");
+  width: 36px;
+  height: 36px;
+  margin: 5px;
+}
+.board-btn--4 {
+  background-image: url("img/board-btns3.svg");
+  width: 36px;
+  height: 36px;
+  margin: 5px;
 }
 
 /* SELECTION */
@@ -225,4 +298,42 @@ img {
 
 .show {
   opacity: 1;
+}
+
+@media screen and (min-width: 320px) and (max-width: 769px) {
+  .card__wrapper {
+    grid-template-columns: 1fr;
+  }
+  .assets {
+    justify-content: start;
+    margin: 10px 0 0 0;
+  }
+  .card__slider {
+    margin-bottom: 10px;
+  }
+  .board-btns-wrapper {
+    margin: 0 20px;
+  }
+  .nav__item {
+    margin-left: 30px;
+    font-size: 14px;
+  }
+  .sort {
+    display: grid;
+    grid-template-columns: 15px 1fr 1fr;
+
+    margin: 20px 20px;
+  }
+
+  .select {
+    margin: 5px;
+    width: 175px;
+  }
+  .select__body {
+    z-index: 15;
+  }
+  .to-archive {
+    margin: 5px;
+    width: 130px;
+  }
 }

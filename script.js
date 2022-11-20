@@ -74,9 +74,28 @@ function displayCard(cards) {
     <p>Видимость: ${item.visible}</p>
     <p>${item.dsecription}</p>
     <p>Тип публикации: ${item.public}</p>
+  </div>
+
+  <div class="assets">
+  <div class="stats-wrapper">
+  <div class="stats--feedback"><p class="assets--text">Отклики</p></div>
+  <div class="stats--view"><p class="assets--text">211 просмотров</p></div>
+  <div class="stats--favorites"><p class="assets--text">В избранном</p></div>
+  <div class="stats--recommend"><p class="assets--text">Подходят</p></div>
+  <div class="stats--fill"></div>
+  </div>
+ 
+  <div class="board-btns-wrapper">
+  <div class="board-btn board-btn--1"></div>
+  <div class="board-btn board-btn--2"></div>
+  <div class="board-btn board-btn--3"></div>
+  <div class="board-btn board-btn--4"></div>
+  </div>
+  </div>
+  
 
   </div>
-  </div>
+
     `;
   });
 }
