@@ -3,94 +3,64 @@
 const DATA = [
   {
     id: "id001",
-    date: 10,
+    date: "2022-11-10",
     name: "Сделать что-то",
     price: 50900,
     adress: "Санкт-Петербург, ст. м. Маяковская",
     dsecription: "Тип здания: одноэтажное",
-    visible: "",
+    visible: "всем зарегистрированным",
     public: "горящее",
-    toArchive: false,
+    img: "img/Frame406.png",
   },
   {
     id: "id002",
-    date: 30,
+    date: "2022-11-30",
     name: "Куплю планшет Samsung",
     price: 10000,
     adress: "Санкт-Петербург, ст. м. Маяковская",
     dsecription: "",
     visible: "всем зарегистрированным",
     public: "премиум",
-    toArchive: false,
+    img: "img/nout.png",
   },
   {
     id: "id003",
-    date: 17,
+    date: "2022-11-17",
     name: "Продам кроссовки",
     price: 5000,
     adress: "Санкт-Петербург, ст. м. Маяковская",
     dsecription: "",
     visible: "всем зарегистрированным",
     public: "поднятие в топ",
-    toArchive: false,
+    img: "img/boots.png",
   },
   {
     id: "id004",
-
-    date: 5,
+    date: "2022-11-05",
     name: "Художник",
     price: 70000,
     adress: "Санкт-Петербург, ст. м. Маяковская",
     dsecription: "",
     visible: "открытая",
     public: "бесплатно",
-    toArchive: false,
+    img: "img/user-1.jpg",
   },
 ];
 
 ////////////////////////////////////
 // CARDS DISPLAY
 
-const cards = JSON.parse(JSON.stringify(DATA));
-console.log(cards); // Получаем массив
+const cards = JSON.parse(JSON.stringify(DATA)); // Получаем массив с копией данных
+console.log(cards);
 
-// const sortCards = (cards) => {
-//   document.querySelectorAll(".select__item").forEach((el) => {
-//     el.addEventListener("click", (event) => {
-//       const target = event.target;
-//       if (target.id === "date_up") {
-//         cards.sort((a, b) => (a.date > b.date ? 1 : -1));
-//         console.log(target.id, cards);
-//       } else if (target.id === "date_down") {
-//         cards.sort((a, b) => (a.date > b.date ? -1 : 1));
-//         console.log(target.id, cards);
-//       } else if (target.id === "price_up") {
-//         cards.sort((a, b) => (a.price > b.price ? 1 : -1));
-//         console.log(target.id, cards);
-//       } else if (target.id === "price_down") {
-//         cards.sort((a, b) => (a.price > b.price ? -1 : 1));
-//         console.log(target.id, cards);
-//       } else "";
-//     });
-//   });
-//   return cards;
-// };
-// sortCards(cards);
-
-displayCard(cards);
-
+// Отображаем массив в виде разметки
 function displayCard(cards) {
-  // document.querySelector(".card").innerHTML = "";
-  console.log(cards);
-
   return cards.forEach((item) => {
     document.querySelector(".card").innerHTML += `
     <div class="card__wrapper">
     <div class="card__slider">
-    <input type="checkbox" class="card__checkbox" name="${item.name}" id="${
-      item.id
-    }"> </input>
-    <img src="img/user-1.jpg" alt="" class="img img-1 show">
+    <input type="checkbox" class="card__checkbox" name="${item.name}" id="${item.id}"> </input>
+    <img src="${item.img}" alt="" class="img img-1 show">
     <img src="img/user-2.jpg" alt="" class="img img-2">
     <img src="img/user-3.jpg" alt="" class="img img-3">
     <img src="img/user-2.jpg" alt="" class="img img-4">
@@ -98,10 +68,10 @@ function displayCard(cards) {
 
   <div class="description">
     <h3><a>${item.name}</a></h3>
-    <p>${item.price}</p>
-    <p>${item.date} ноября</p>
-    <p>${30 - item.date} дней</p>
+    <p class="price">${item.price} ₽</p>
+    <p>Дата публикации: ${item.date}</p>
     <p>${item.adress}</p>
+    <p>Видимость: ${item.visible}</p>
     <p>${item.dsecription}</p>
     <p>Тип публикации: ${item.public}</p>
 
@@ -111,32 +81,9 @@ function displayCard(cards) {
   });
 }
 
-// const sortByDateUp = () => {
-//   document.querySelector(".card").innerHTML = "";
-//   // const cards = JSON.parse(JSON.stringify(arr));
-//   cards.sort((a, b) => (a.date > b.date ? 1 : -1));
+displayCard(cards);
 
-//   return displayCard(cards);
-// };
-
-// const sortByDateDown = () => {
-//   document.querySelector(".card").innerHTML = "";
-//   cards.sort((a, b) => (a.date > b.date ? -1 : 1));
-//   return displayCard(cards);
-// };
-
-// const sortByPriceUp = () => {
-//   document.querySelector(".card").innerHTML = "";
-//   cards.sort((a, b) => (a.price > b.price ? 1 : -1));
-//   return displayCard(cards);
-// };
-
-// const sortByPriceDown = () => {
-//   document.querySelector(".card").innerHTML = "";
-//   cards.sort((a, b) => (a.price > b.price ? -1 : 1));
-//   return displayCard(cards);
-// };
-
+// Сортировка по дате / цене
 document.getElementById("date_up").addEventListener("click", () => {
   document.querySelector(".card").innerHTML = "";
   cards.sort((a, b) => (a.date > b.date ? 1 : -1));
@@ -163,35 +110,33 @@ document.getElementById("price_down").addEventListener("click", () => {
 ////////////////////////////////////
 // CHECKBOXES
 
-const cardCheckbox = Array.from(document.querySelectorAll(".card__checkbox"));
-const cardCheckAll = document.querySelector(".check-all");
+const cardCheckbox = document.querySelectorAll(".card__checkbox"); // каждый отдельный чекбокс на карточке
+const cardCheckAll = document.querySelector(".check-all"); // чекбокс "выделить все"
+const archiveButton = document.querySelector(".to-archive"); // кнопка "в архив"
 
-// const cardsParant = document.querySelector(".card");
-// const cardsChildren = Array.from(cardsParant.children);
-// console.log(cardsChildren);
-const archiveButton = document.querySelector(".to-archive");
+let checkedCardsIds = [];
 
-// console.log(cardsParant.length);
-// console.log(cardsParant.children[0].children[0].children[0].checked);
+// Если чекбокс на карточке выбран, скрыть карточку.
+// И добавить его ID в массив checkedCardsIds
+function isChecked() {
+  cardCheckbox.forEach(
+    (el) =>
+      el.checked &&
+      (el.parentElement.parentElement.style.display = "none") &&
+      cards.map((card) => card.id !== el.id) &&
+      checkedCardsIds.push(el.id) &&
+      console.log(checkedCardsIds)
+  );
+}
 
-let toArchive = [];
-const chekedCard = cardCheckbox.map((item) => {
-  archiveButton.addEventListener("click", () => {
-    item.checked
-      ? (item.parentElement.parentElement.style.display = "none") &&
-        toArchive.push(item.id) &&
-        console.log(toArchive)
-      : "";
-  });
-});
+archiveButton.addEventListener("click", isChecked);
 
-cardCheckAll.addEventListener("click", checkAll);
-
+//////////// CHECK ALL /////////////
+// Если чекбокс "выделить все" выбран, выбрать все остальные.
 function checkAll() {
   if (cardCheckAll.checked == true) {
     cardCheckbox.forEach((checkbox) => {
       checkbox.checked = true;
-      toArchive.push(checkbox.id);
     });
   } else {
     cardCheckbox.forEach((checkbox) => {
@@ -199,6 +144,8 @@ function checkAll() {
     });
   }
 }
+
+cardCheckAll.addEventListener("click", checkAll);
 
 ////////////////////////////////////
 // SELECTION
