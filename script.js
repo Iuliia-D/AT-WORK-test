@@ -82,14 +82,19 @@ function displayCard(cards) {
   <div class="stats--view"><p class="assets--text">211 просмотров</p></div>
   <div class="stats--favorites"><p class="assets--text">В избранном</p></div>
   <div class="stats--recommend"><p class="assets--text">Подходят</p></div>
-  <div class="stats--fill"></div>
+  <div class="stats--fill">
+  <div class="stats--fill-track">
+  <div class="stats--fill-track-content"></div>
+  </div>
+  <p class="stats--fill-value"> 48%</p>
+  </div>
   </div>
  
   <div class="board-btns-wrapper">
-  <div class="board-btn board-btn--1"></div>
-  <div class="board-btn board-btn--2"></div>
-  <div class="board-btn board-btn--3"></div>
-  <div class="board-btn board-btn--4"></div>
+  <button class="board-btn board-btn--1"></button>
+  <button class="board-btn board-btn--2"></button>
+  <button class="board-btn board-btn--3"></button>
+  <button class="board-btn board-btn--4"></button>
   </div>
   </div>
   

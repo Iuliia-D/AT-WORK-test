@@ -105,6 +105,7 @@ h3 {
   line-height: 22px;
   color: #2f93e1;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 .price {
   font-weight: 600;
@@ -150,10 +151,25 @@ h3 {
   padding: 1px 4px;
 }
 .stats--fill {
-  background-image: url("img/fill.svg");
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 140px;
   height: 26px;
   margin: 5px;
+}
+.stats--fill-track {
+  width: 104px;
+  height: 8px;
+  background: #eef2f4;
+  border-radius: 30px;
+  margin-right: 3px;
+}
+.stats--fill-track-content {
+  border-radius: 30px 0 0 30px;
+  width: 50px;
+  height: 8px;
+  background: #606483;
 }
 
 .board-btns-wrapper {
@@ -223,7 +239,7 @@ h3 {
 
 .select__current::after {
   content: url(img/Vector23.svg);
-  margin-left: 7px;
+  margin-left: 5px;
 }
 .select__body {
   display: none;
@@ -284,6 +300,7 @@ h3 {
   height: 170px;
   display: flex;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 img {
@@ -320,20 +337,21 @@ img {
   }
   .sort {
     display: grid;
-    grid-template-columns: 15px 1fr 1fr;
+    grid-template-columns: 12px 1fr 1fr;
 
     margin: 20px 20px;
   }
 
   .select {
-    margin: 5px;
+    margin: 3px;
+    padding: 5px;
     width: 175px;
   }
   .select__body {
     z-index: 15;
   }
   .to-archive {
-    margin: 5px;
-    width: 130px;
+    margin: 3px;
+    width: 129px;
   }
 }
